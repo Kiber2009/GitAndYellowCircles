@@ -4,67 +4,12 @@ from PyQt5.QtGui import QPainter, QColor
 from PyQt5 import uic
 from random import randint
 import sys
-import io
-
-
-ui = """<?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>500</width>
-    <height>500</height>
-   </rect>
-  </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
-  </property>
-  <property name="windowTitle">
-   <string>Git и желтые окружности</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>450</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>New circle</string>
-    </property>
-   </widget>
-  </widget>
- </widget>
- <resources/>
- <connections/>
-</ui>
-"""
 
 
 class App(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi(io.StringIO(ui), self)
+        uic.loadUi('Ui.ui', self)
         self.do_paint = False
         self.pushButton.clicked.connect(self.paint)
 
